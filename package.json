@@ -1,12 +1,13 @@
 {
   "name": "mark-f",
   "displayName": "Mark_F",
-  "description": "Marks files as Read, Updated, or Unread with Explorer decorations.",
+  "description": "Marks files and folders as Read, Updated, or Unread with Explorer decorations.",
   "version": "0.0.1",
+  "publisher": "your-publisher-id", 
   "engines": {
     "vscode": "^1.70.0"
   },
-  "categories": [ 
+  "categories": [
     "Other"
   ],
   "main": "./extension.js",
@@ -19,17 +20,33 @@
     "commands": [
       {
         "command": "marker.markRead",
-        "title": "Mark File as Read"
+        "title": "Mark as Read"
       },
       {
         "command": "marker.markUpdated",
-        "title": "Mark File as Updated"
+        "title": "Mark as Updated"
       },
       {
         "command": "marker.markUnread",
-        "title": "Mark File as Unread"
+        "title": "Mark as Unread"
       }
-    ]
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "marker.markRead",
+          "group": "navigation@1"
+        },
+        {
+          "command": "marker.markUpdated",
+          "group": "navigation@2"
+        },
+        {
+          "command": "marker.markUnread",
+          "group": "navigation@3"
+        }
+      ]
+    }
   },
   "scripts": {
     "lint": "eslint .",
